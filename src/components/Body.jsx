@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { apiData } from '../data';
+// import { apiData } from '../data';
 
 const Body = () => {
   const [transactionData, setTransactionData] = useState(null);
@@ -22,6 +22,8 @@ const Body = () => {
 
     fetchTransactionData();
   }, []);
+
+  console.log('transactionData', transactionData);
 
   return (
     <div className='w-full md:w-[60%] p-10'>
@@ -60,47 +62,52 @@ const Body = () => {
         <img src='/scratching-head.svg' alt='' className='w-[40%]' />
 
         <div className='mt-10 shadow-md p-7 w-full'>
-          <h3 className='text-sm sourceSansPro-semibold'>
-            {apiData.data.balance}
-          </h3>
-          <h1 className='text-4xl sourceSansPro-semibold'>$9,314</h1>
+          <h3 className='text-sm sourceSansPro-semibold'>Balance</h3>
+          <h1 className='text-4xl sourceSansPro-semibold'>
+            {' '}
+            {transactionData?.data.balance && transactionData.data.balance}
+          </h1>
 
           <div>
             {/*  */}
-            {apiData.data.transactions.map((transactions, i) => (
-              <div
-                key={i}
-                className='flex justify-between items-center border-b py-5'>
-                <p className='sourceSansPro-regular text-sm'>
-                  {transactions.title}
-                </p>
+            {transactionData?.data.transactions && (
+              <div>
+                {transactionData?.data.transactions.map((transactions, i) => (
+                  <div
+                    key={i}
+                    className='flex justify-between items-center border-b py-5'>
+                    <p className='sourceSansPro-regular text-sm'>
+                      {transactions.title}
+                    </p>
 
-                <div className='flex gap-5 items-center'>
-                  <div className='px-2.5 rounded-full border flex justify-center items-center'>
-                    <button
-                      type='button'
-                      className='text-lg font-bold text-[#404650] '>
-                      +
-                    </button>
+                    <div className='flex gap-5 items-center'>
+                      <div className='px-2.5 rounded-full border flex justify-center items-center'>
+                        <button
+                          type='button'
+                          className='text-lg font-bold text-[#404650] '>
+                          +
+                        </button>
+                      </div>
+                      <p
+                        className={`${
+                          transactions.type === 'debit'
+                            ? 'text-red-600'
+                            : 'text-green-600'
+                        }`}>
+                        {transactions.amount}
+                      </p>
+                      <div className='px-2.5 rounded-full border flex justify-center items-center'>
+                        <button
+                          type='button'
+                          className='text-lg font-bold text-[#404650] '>
+                          +
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <p
-                    className={`${
-                      transactions.type === 'debit'
-                        ? 'text-red-600'
-                        : 'text-green-600'
-                    }`}>
-                    {transactions.amount}
-                  </p>
-                  <div className='px-2.5 rounded-full border flex justify-center items-center'>
-                    <button
-                      type='button'
-                      className='text-lg font-bold text-[#404650] '>
-                      +
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
