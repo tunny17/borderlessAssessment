@@ -27,4 +27,4 @@ export const apiData = {
   },
 };
 
-// the api isn't working, there's a security blocking my requests so i copied the response i got from my thunder client extensions and worked with that instead
+// the api isn't working, there's a security blocking my requests so i copied the response i got from my thunder client extensions and worked with that instead CORS i think

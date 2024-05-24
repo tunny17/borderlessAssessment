@@ -33,7 +33,7 @@ const Body = () => {
 
       {/*  */}
       <div className='flex md:flex-row gap-y-5 flex-col justify-between mt-10'>
-        <figure className='w-full md:w-[47%] flex items-center gap-5 shadow-md rounded-md px-3 py-6'>
+        <figure className='w-full md:w-[47%] flex items-center gap-5 shadow-md rounded-md px-3 py-6 hover:scale-110 transition-all duration-300'>
           <div className='bg-[#E9EBEC] px-3 py-3.5 rounded-md'>
             <img src='/navigation/body-home-icon.svg' alt='' />
           </div>
@@ -45,7 +45,7 @@ const Body = () => {
           </figcaption>
         </figure>
 
-        <figure className='w-full md:w-[47%] flex items-center gap-5 shadow-md rounded-md px-3 py-6'>
+        <figure className='w-full md:w-[47%] flex items-center gap-5 shadow-md rounded-md px-3 py-6 hover:scale-110 transition-all duration-300'>
           <div className='bg-[#E9EBEC] px-3 py-3.5 rounded-md'>
             <img src='/navigation/body-home-icon.svg' alt='' />
           </div>
@@ -61,16 +61,15 @@ const Body = () => {
       <div className='flex md:flex-row gap-y-5 flex-col-reverse justify-between items-center'>
         <img src='/scratching-head.svg' alt='' className='w-[40%]' />
 
-        <div className='mt-10 shadow-md p-7 w-full'>
+        <div className='mt-10 shadow-md p-7 w-full hover:scale-110 transition-all duration-300'>
           <h3 className='text-sm sourceSansPro-semibold'>Balance</h3>
           <h1 className='text-4xl sourceSansPro-semibold'>
-            {' '}
             {transactionData?.data.balance && transactionData.data.balance}
           </h1>
 
           <div>
             {/*  */}
-            {transactionData?.data.transactions && (
+            {transactionData?.data.transactions ? (
               <div>
                 {transactionData?.data.transactions.map((transactions, i) => (
                   <div
@@ -106,6 +105,10 @@ const Body = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+            ) : (
+              <div className='flex justify-center items-center'>
+                No transactions available
               </div>
             )}
           </div>

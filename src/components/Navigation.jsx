@@ -31,12 +31,12 @@ const Navigation = () => {
 
       <ul className='w-[80%] mx-auto px-5 flex flex-col justify-center items-start gap-10 mt-10'>
         {navs.map((nav, i) => (
-          <li key={i} className='flex gap-5'>
+          <li key={i} className='flex gap-5 cursor-pointer'>
             <img src={nav.icon} alt='' className='' />
             <p
               className={`sourceSansPro-semibold text-sm  ${
                 nav.active ? 'text-[#3579DC]' : 'text-[#8E97A4]'
-              }`}>
+              } hover:text-[#3579DC] transition-all duration-300`}>
               {nav.name}
             </p>
           </li>
