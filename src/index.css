@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #404650;
+}
+
+@font-face {
+  font-family: 'SourceSansPro Bold';
+  src: local('SourceSansPro'),
+        url('./fonts/SourceSansPro-Bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'SourceSansPro Semibold';
+  src: local('SourceSansPro'),
+        url('./fonts/SourceSansPro-Semibold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'SourceSansPro Regular';
+  src: local('SourceSansPro'),
+        url('./fonts/SourceSansPro-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'SourceSansPro Light';
+  src: local('SourceSansPro'),
+        url('./fonts/SourceSansPro-Light.ttf') format('truetype')
+}
+
+
+.sourceSansPro-bold {
+  font-family: 'SourceSansPro Bold', sans-serif;
+}
+
+.sourceSansPro-semibold {
+  font-family: 'SourceSansPro Semibold', sans-serif;
+}
+
+.sourceSansPro-regular {
+  font-family: 'SourceSansPro Regular', sans-serif;
+}
+
+.sourceSansPro-light {
+  font-family: 'SourceSansPro Light', sans-serif;
+}
+
+.gradient {
+  background: linear-gradient(to bottom, #3579DC, #95D9FF);
+
+}
